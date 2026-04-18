@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="vikchannelmanager" method="upgrade">
+
+    <name>PLG_VIKCHANNELMANAGER_PRICELABS</name>
+    <author>Giacomo Barlettani</author>
+    <creationDate>2026</creationDate>
+    <copyright>Copyright (C) 2026 Giacomo Barlettani All Rights Reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>giacomo.barlettani@gmail.com</authorEmail>
+    <authorUrl>https://www.campetroso.it</authorUrl>
+    <version>0.1.0</version>
+    <description>Plugin for integrating with Pricelabs API</description>
+
+    <namespace path="src">Joomla\Plugin\Vikchannelmanager\Pricelabs</namespace>
+
+    <files>
+        <filename plugin="pricelabs">pricelabs.php</filename>
+        <folder>src</folder>
+        <folder>sql</folder>
+        <folder>language</folder>
+        <folder>resources</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_vikchannelmanager_pricelabs.ini</language>
+        <language tag="en-GB">language/en-GB/plg_vikchannelmanager_pricelabs.sys.ini</language>
+        <language tag="it-IT">language/it-IT/plg_vikchannelmanager_pricelabs.ini</language>
+        <language tag="it-IT">language/it-IT/plg_vikchannelmanager_pricelabs.sys.ini</language>
+    </languages>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <scriptfile>script.php</scriptfile>
+
+</extension>

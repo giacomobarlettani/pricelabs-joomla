@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="process_queue"
+            label="PLG_TASK_PRICELABS_PROCESS_QUEUE"
+            description="PLG_TASK_PRICELABS_PROCESS_QUEUE_DESC"
+        >
+            <field
+                name="max_jobs"
+                type="number"
+                default="6"
+                min="1"
+                max="50"
+                label="PLG_TASK_PRICELABS_PROCESS_QUEUE_MAX_JOBS_LABEL"
+                description="PLG_TASK_PRICELABS_PROCESS_QUEUE_MAX_JOBS_DESC"
+            />
+        </fieldset>
+    </fields>
+</form>

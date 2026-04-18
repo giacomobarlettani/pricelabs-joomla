@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="flush_queue"
+            label="PLG_TASK_PRICELABS_FLUSH_QUEUE"
+            description="PLG_TASK_PRICELABS_FLUSH_QUEUE_DESC"
+        >
+            <field
+                name="threshold"
+                type="list"
+                default="-1 month"
+                label="PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_LABEL"
+                description="PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_DESC"
+            >
+                <option value="-1 week">PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_1WEEK</option>
+                <option value="-1 month">PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_1MONTH</option>
+                <option value="-3 month">PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_3MONTHS</option>
+                <option value="-6 month">PLG_TASK_PRICELABS_FLUSH_QUEUE_THRESHOLD_6MONTHS</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>
