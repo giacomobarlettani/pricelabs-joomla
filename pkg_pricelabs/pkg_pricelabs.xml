@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" method="upgrade">
+
+    <name>PKG_PRICELABS</name>
+    <author>Giacomo Barlettani</author>
+    <creationDate>2026</creationDate>
+    <copyright>Copyright (C) 2026 Giacomo Barlettani All Rights Reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>giacomo.barlettani@gmail.com</authorEmail>
+    <authorUrl>https://www.campetroso.it</authorUrl>
+    <version>0.1.0</version>
+    <description>PKG_PRICELABS_DESC</description>
+
+    <files folder="packages">
+        <file type="plugin" group="vikchannelmanager" id="pricelabs">plg_vikchannelmanager_pricelabs.zip</file>
+        <file type="plugin" group="task" id="pricelabs">plg_task_pricelabs.zip</file>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/pkg_pricelabs.ini</language>
+        <language tag="en-GB">en-GB/pkg_pricelabs.sys.ini</language>
+        <language tag="it-IT">it-IT/pkg_pricelabs.ini</language>
+        <language tag="it-IT">it-IT/pkg_pricelabs.sys.ini</language>
+    </languages>
+
+    <scriptfile>script.php</scriptfile>
+
+</extension>
