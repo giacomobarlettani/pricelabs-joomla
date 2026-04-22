@@ -53,18 +53,17 @@ abstract class Factory
         $container = new Container;
 
         // register job processor
-        $container->set(
-            'job.processor',
-            function(Container $c)
-            {
-                return new \Joomla\Plugin\Vikchannelmanager\Pricelabs\Job\Processor(
-                    new \Joomla\Plugin\Vikchannelmanager\Pricelabs\Job\Collections\DatabaseCollection
-                );
-            },
-            shared: true,
-            protect: false
-        );
-
+	$container->set(
+    	'job.processor',
+    	function(Container $c)
+    	{
+        return new \Joomla\Plugin\Vikchannelmanager\Pricelabs\Job\Processor(
+            new \Joomla\Plugin\Vikchannelmanager\Pricelabs\Job\Collections\DatabaseCollection
+        	);
+    	},
+    	true,
+    	false
+	);
         return $container;
     }
 }

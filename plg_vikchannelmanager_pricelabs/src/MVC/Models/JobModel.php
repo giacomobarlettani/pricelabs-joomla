@@ -39,7 +39,7 @@ class JobModel extends BaseDatabaseModel
      *
      * @param   array|object  $data
      *
-     * @return  int|false  The record ID on success, false otherwise.
+     * @return  int|false
      */
     public function save(array|object $data): int|false
     {
@@ -53,19 +53,19 @@ class JobModel extends BaseDatabaseModel
 
         if (!$table->bind($data))
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
         if (!$table->check())
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
         if (!$table->store())
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
@@ -92,7 +92,7 @@ class JobModel extends BaseDatabaseModel
         {
             if (!$table->delete((int) $id))
             {
-                $this->setError($table->getError());
+                parent::setError($table->getError());
                 return false;
             }
         }
@@ -129,33 +129,5 @@ class JobModel extends BaseDatabaseModel
         }
 
         return $job ?: null;
-    }
-
-    /**
-     * Stores an error message.
-     *
-     * @param   string|\Exception  $error
-     *
-     * @return  void
-     */
-    protected function setError(string|\Exception $error): void
-    {
-        if ($error instanceof \Exception)
-        {
-            parent::setError($error->getMessage());
-            return;
-        }
-
-        parent::setError($error);
-    }
-
-    /**
-     * Returns the last error message.
-     *
-     * @return  mixed
-     */
-    public function getError($i = null, $toString = true): mixed
-    {
-        return parent::getError($i, $toString);
     }
 }

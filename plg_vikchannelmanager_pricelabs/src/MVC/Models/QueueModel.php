@@ -39,7 +39,7 @@ class QueueModel extends BaseDatabaseModel
      *
      * @param   array|object  $data
      *
-     * @return  int|false  The record ID on success, false otherwise.
+     * @return  int|false
      */
     public function save(array|object $data): int|false
     {
@@ -53,19 +53,19 @@ class QueueModel extends BaseDatabaseModel
 
         if (!$table->bind($data))
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
         if (!$table->check())
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
         if (!$table->store())
         {
-            $this->setError($table->getError());
+            parent::setError($table->getError());
             return false;
         }
 
@@ -126,12 +126,11 @@ class QueueModel extends BaseDatabaseModel
         {
             if (!$table->delete((int) $id))
             {
-                $this->setError($table->getError());
+                parent::setError($table->getError());
                 return false;
             }
         }
 
-        // delete children jobs
         $db->setQuery(
             $db->getQuery(true)
                 ->select($db->qn('id'))
@@ -240,7 +239,6 @@ class QueueModel extends BaseDatabaseModel
             'aborted' => 1,
         ]);
 
-        // set all pending jobs as aborted (status = 3)
         $db->setQuery(
             $db->getQuery(true)
                 ->update($db->qn('#__e4jconnect_pricelabs_jobs'))
@@ -284,33 +282,5 @@ class QueueModel extends BaseDatabaseModel
         );
 
         return $this->delete($db->loadColumn());
-    }
-
-    /**
-     * Stores an error message.
-     *
-     * @param   string|\Exception  $error
-     *
-     * @return  void
-     */
-    protected function setError(string|\Exception $error): void
-    {
-        if ($error instanceof \Exception)
-        {
-            parent::setError($error->getMessage());
-            return;
-        }
-
-        parent::setError($error);
-    }
-
-    /**
-     * Returns the last error message.
-     *
-     * @return  string|\Exception
-     */
-    public function getError($i = null, $toString = true): mixed
-    {
-        return parent::getError($i, $toString);
     }
 }

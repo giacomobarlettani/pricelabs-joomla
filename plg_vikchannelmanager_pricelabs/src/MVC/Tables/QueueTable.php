@@ -31,7 +31,7 @@ class QueueTable extends Table
     /**
      * @var string
      */
-    public string $signature = '';
+    public ?string $signature = null;
 
     /**
      * @var string|null
@@ -41,7 +41,7 @@ class QueueTable extends Table
     /**
      * @var string
      */
-    public string $createdon = '';
+    public ?string $createdon = null;
 
     /**
      * @var int
